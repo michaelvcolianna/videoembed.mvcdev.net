@@ -13,7 +13,7 @@ const player = ref(null)
 
 // @note Using YouTube explicitly here; ideally a method to determine the source
 //       would be best for making the iframe and card fallback srcs
-const iframeCard = cardSrc ?? `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`
+const iframeCard = props.cardSrc ?? `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`
 const iframeSrc = `https://www.youtube.com/embed/${props.videoId}?&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1`
 const iframeId = `video-${props.videoId}`
 

@@ -1,42 +1,7 @@
-# Nuxt 3 Minimal Starter
+# Video Embed Test
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+For work, we were experiencing some issues trying to embed videos on a client's site - the handmade method we were using sometimes didn't load the video, or the play button didn't work, etc. Often, the presence of an ad blocker would actually *fix* the issue.
 
-## Setup
+I used Plyr to handle podcasts on another client's site and decided to try it out with a video. It worked, with or without an ad blocker.
 
-Make sure to install the dependencies:
-
-```bash
-# yarn
-yarn install
-
-# npm
-npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+Someone forked this so I am updating to add some notes in case they are helpful.

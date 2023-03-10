@@ -1,21 +1,33 @@
 <script setup>
 const props = defineProps({
-  videoId: String
+  videoId: String,
+  cardSrc: {
+    type: String,
+    default: null
+  }
 })
 
+// @note Made these refs in case any dynamic video loading is needed
 const card = ref(null)
 const player = ref(null)
 
-// @note Card would ideally be from a prop but this could be fallback
-const iframeCard = `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`
+// @note Using YouTube explicitly here; ideally a method to determine the source
+//       would be best for making the iframe and card fallback srcs
+const iframeCard = cardSrc ?? `https://i.ytimg.com/vi/${props.videoId}/hqdefault.jpg`
 const iframeSrc = `https://www.youtube.com/embed/${props.videoId}?&iv_load_policy=3&modestbranding=1&playsinline=1&showinfo=0&rel=0&enablejsapi=1`
 const iframeId = `video-${props.videoId}`
 
+/**
+ * Handler to hide the card and start the video.
+ *
+ * @return void
+ */
 function playVideo() {
   card.value.classList.add('hidden')
   player.value.plyr.play()
 }
 
+// Use a promise to load and init the player
 onMounted(async () => {
   const Plyr = await import('plyr')
 
